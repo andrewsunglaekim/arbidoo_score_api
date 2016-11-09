@@ -5,11 +5,18 @@ class ScoresController < ApplicationController
   end
 
   def high_score
-    @scores = Score.where(maxNum: params[:score]).order(score: :desc, time: :asc)
+    @scores = Score.where(maxNum: params[:score]).order(score: :desc, time: :asc).limit(5)
     render json: @scores
   end
 
-  def score
-    binding.pry
+  def create
+    @score = Score.create!(score_params)
+    render json: @score
   end
+
+  private
+  def score_params
+   params.require(:score).permit(:username, :score, :maxNum, :operator, :time)
+  end
+
 end
