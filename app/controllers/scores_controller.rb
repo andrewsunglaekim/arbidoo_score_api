@@ -6,7 +6,10 @@ class ScoresController < ApplicationController
   end
 
   def high_score
-    render json: @scores
+	  @data = {
+      leaderBoard: @scores
+		}
+    render json: @data
   end
 
   def create

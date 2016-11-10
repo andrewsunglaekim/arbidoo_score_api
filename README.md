@@ -1,24 +1,15 @@
-# README
+# Arbidoo Rails API
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+> Visit `https://github.com/andrewsunglaekim/arbidoo` for the client of this API
 
-Things you may want to cover:
+## Setup
 
-* Ruby version
+Fork and clone this repo
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+```bash
+$ bundle install
+$ rake db:create
+$ rake db:migrate
+$ rake db:seed
+$ rails s
+```
