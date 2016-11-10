@@ -24,12 +24,11 @@ class ScoresController < ApplicationController
   end
 	
 	def get_high_scores
-	  if params[:score].class == "String"
+	  if params[:score].class.to_s == "String"
 	    score = JSON.parse(params[:score])["maxNum"]
 		else
 			score = params[:score]["maxNum"]
 	  end
     @scores = Score.where(maxNum: score).order(score: :desc, time: :asc).limit(5)
 	end
-
 end
