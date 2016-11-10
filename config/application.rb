@@ -8,18 +8,9 @@ Bundler.require(*Rails.groups)
 
 module ArbidueScores
   class Application < Rails::Application
-		config.middleware.insert_before 0, "Rack::Cors" do
-      allow do
-        origins '*'
-        resource '*', :headers => :any, :methods => [:get, :post, :options]
-      end
-    end
-
-    # Rails 5
-
     config.middleware.insert_before 0, Rack::Cors do
       allow do
-        origins '*'
+        origins 'localhost:3000'
         resource '*', :headers => :any, :methods => [:get, :post, :options]
       end
     end
